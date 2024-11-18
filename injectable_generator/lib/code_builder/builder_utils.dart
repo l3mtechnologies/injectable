@@ -93,7 +93,7 @@ extension _InjectedDependencyX on InjectedDependency {
 @visibleForTesting
 List<DependencyConfig> sortDependencies(List<DependencyConfig> it) {
   // sort dependencies alphabetically by all the various attributes that may make them unique
-  final deps = it.sortedBy<num>((e) => e.identityHash);
+  final deps = it.sortedBy<String>((e) => e.type.toString());
   // sort dependencies by their register order
   final List<DependencyConfig> sorted = [];
   _sortByDependents(deps, sorted);
